@@ -1,0 +1,48 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+#profile
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 100px 50px;
+}
+
+.profileData
+{
+    width: 100%;
+}
+
+img 
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h1
+{
+    color: orange;
+    margin: 5px 0px;
+}
+
+p 
+{
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    word-spacing: 0.5px;
+}
