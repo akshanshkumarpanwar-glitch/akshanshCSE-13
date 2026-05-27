@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 50%;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightblue;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Employee Details (Salary > 50000)</h2>
+
+<button onclick="showEmployees()">Show Employees</button>
+
+<table id="empTable">
+    <tr>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+</table>
+
+<script>
+    function showEmployees() {
+
+        var employees = [
+            {name: "Amit", salary: 40000},
+            {name: "Ravi", salary: 60000},
+            {name: "Neha", salary: 75000},
+            {name: "Suman", salary: 30000},
+            {name: "Karan", salary: 52000}
+        ];
+
+        var table = document.getElementById("empTable");
+
+        // Clear old rows (except header)
+        table.innerHTML = `
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+        `;
+
+        for (var i = 0; i < employees.length; i++) {
+
+            if (employees[i].salary > 50000) {
+
+                var row = table.insertRow();
+
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+
+                cell1.innerHTML = employees[i].name;
+                cell2.innerHTML = employees[i].salary;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
