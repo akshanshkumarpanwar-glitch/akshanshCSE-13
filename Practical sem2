@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Even or Odd Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React and Babel CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    function EvenOddChecker() {
+      const [number, setNumber] = React.useState("");
+      const [result, setResult] = React.useState("");
+
+      const checkNumber = () => {
+        if (number === "") {
+          setResult("Please enter a number.");
+          return;
+        }
+        const num = parseInt(number, 10);
+        if (isNaN(num)) {
+          setResult("Invalid input. Enter a valid number.");
+        } else {
+          setResult(num % 2 === 0 ? `${num} is Even` : `${num} is Odd`);
+        }
+      };
+
+      return (
+        <div className="container">
+          <h2>Even or Odd Checker</h2>
+          <input
+            type="text"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            placeholder="Enter a number"
+          />
+          <br />
+          <button onClick={checkNumber}>Check</button>
+          <div className="result">{result}</div>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<EvenOddChecker />, document.getElementById("root"));
+  </script>
+</body>
+</html>
